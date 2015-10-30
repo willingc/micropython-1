@@ -30,9 +30,31 @@
 #include "py/obj.h"
 #include "microbit/modmicrobit.h"
 
-STATIC const char *help_text =
+STATIC const char *help_welcome =
 "Welcome to MicroPython on the micro:bit!\n"
 "\n"
+;
+
+STATIC const char *help_explore =
+"Explore:\n"
+"Type 'help(something)' to find out about it. Type 'dir(something)' to see what\n"
+"it can do. For goodness sake, don't type 'import this'.\n"
+"\n"
+;
+
+STATIC const char *help_control_commands =
+"Control commands:\n"
+"  CTRL-C        -- stop a running program\n"
+"  CTRL-D        -- on a blank line, do a soft reset of the micro:bit\n"
+"\n"
+"Available modules: array, collections, microbit, micropython, gc, struct, sys,\n"
+"this\n"
+"\n"
+"For more information about Python, visit: http://python.org/\n"
+"To find out about MicroPython, visit: http://micropython.org/\n"
+;
+
+STATIC const char *help_try_commands =
 "Type 'import microbit', press return and try these commands:\n"
 "  microbit.display.scroll('Hello')\n"
 "  microbit.running_time()\n"
@@ -43,10 +65,9 @@ STATIC const char *help_text =
 "unfinished words (so 'mi' becomes 'microbit' after you press TAB). These\n"
 "tricks save a lot of typing and look cool!\n"
 "\n"
-"Explore:\n"
-"Type 'help(something)' to find out about it. Type 'dir(something)' to see what\n"
-"it can do. For goodness sake, don't type 'import this'.\n"
-"\n"
+;
+
+STATIC const char *help_explore_stuff =
 "Stuff to explore:\n"
 "  microbit.accelerometer         -- detect the device's position (orientation)\n"
 "  microbit.button_a.is_pressed() -- is button A pressed? (True or False)\n"
@@ -61,15 +82,6 @@ STATIC const char *help_text =
 "  microbit.sleep(n)              -- wait for n milliseconds (1 second = 1000)\n"
 "  microbit.running_time()        -- get the number of milliseconds since reset\n"
 "\n"
-"Control commands:\n"
-"  CTRL-C        -- stop a running program\n"
-"  CTRL-D        -- on a blank line, do a soft reset of the micro:bit\n"
-"\n"
-"Available modules: array, collections, microbit, micropython, gc, struct, sys,\n"
-"this\n"
-"\n"
-"For more information about Python, visit: http://python.org/\n"
-"To find out about MicroPython, visit: http://micropython.org/\n"
 ;
 
 typedef struct _mp_doc_t {
