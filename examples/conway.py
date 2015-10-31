@@ -1,9 +1,10 @@
-'''
-Conway's Game Of Life for the micro:bit
+"""
+   conway.py
+   ~~~~~~~~~
 
-Press button A or tap the micro:bit to generate a fresh layout.
-'''
-
+   Conway's Game of Life
+   Press 'A' button or tap micro:bit to start a fresh layout
+"""
 import microbit
 
 arena1 = bytearray(7 * 7)
@@ -16,8 +17,8 @@ def show():
             img.set_pixel(x, y, arena1[8 + y * 7 + x]*9)
     microbit.display.print(img)
 
-# do 1 iteration of Conway's Game of Life
 def conway_step():
+    """ Do one iteration of the game """
     global arena1, arena2
     for i in range(5 * 5): # loop over pixels
         i = 8 + (i // 5) * 7 + i % 5

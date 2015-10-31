@@ -1,15 +1,19 @@
 """
-This script uses the inline assembler to make the LEDs light up
-in a pattern based on how they are multiplexed in rows/cols.
-"""
+    asmleds.py
+    ~~~~~~~~~~
 
+    Uses the inline assembler to make the LEDs light up one by
+    one in a multiplexed pattern by rows and columns.
+"""
 # row pins: 13, 14, 15
 # col pins: 4..12 inclusive
 # GPIO words starting at 0x50000500:
 #   RESERVED, OUT, OUTSET, OUTCLR, IN, DIR, DIRSET, DIRCLR
 
+
 @micropython.asm_thumb
 def led_cycle():
+    """ Cycle leds turning on and off one at a time """
     b(START)
 
     # DELAY routine

@@ -1,6 +1,9 @@
 """
-A simple maze program.  You are the flashing dot and can walk around
-using the accelerometer.
+    maze.py
+    ~~~~~~~
+
+    A simple maze program.
+    You are the flashing dot and can walk around by moving the accelerometer.
 """
 
 import microbit
